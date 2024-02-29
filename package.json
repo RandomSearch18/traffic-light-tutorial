@@ -1,0 +1,18 @@
+{
+  "name": "traffic-light-tutorial",
+  "version": "1.0.0",
+  "description": "A website to teach novice drivers the principles of traffic lights",
+  "type": "module",
+  "repository": "https://github.com/RandomSearch18/traffic-light-tutorial",
+  "author": "RandomSearch <101704343+RandomSearch18@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4"
+  }
+}
