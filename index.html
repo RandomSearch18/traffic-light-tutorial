@@ -12,6 +12,31 @@
     <main>
       <h1>Traffic light tutorial</h1>
       <h2>Data collection</h2>
+      <form class="data-collection">
+        <div class="form-item">
+          <label for="name-input">Your name</label>
+          <input type="text" name="name" id="name-input" />
+        </div>
+        <div class="form-item">
+          <label for="age-input">Your age</label>
+          <input type="number" name="age" id="age-input" />
+        </div>
+        <div class="form-section">
+          <h3>Your driving experience</h3>
+          <div class="form-item">
+            <label for="years-experience-input"
+              >How many years have you been driving for?</label
+            >
+            <input
+              type="number"
+              name="years-experience"
+              id="years-experience-input"
+              class="short-input"
+            />
+          </div>
+        </div>
+        <div class="form-actions"><button type="submit">Submit</button></div>
+      </form>
     </main>
     <script type="module" src="/src/main.mts"></script>
   </body>
