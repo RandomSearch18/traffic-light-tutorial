@@ -14,6 +14,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fdf6e3;
+  }
+
+  input {
+    background-color: #eee8d5;
+    border-width: 1px;
+    border: #8d897b solid 1px;
+  }
+}
+
 code {
   font-family: Monaco, Consolas, 'Courier New',
     monospace;
