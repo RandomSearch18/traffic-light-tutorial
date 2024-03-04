@@ -12,6 +12,9 @@ body {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Allow overscroll */
+  margin-bottom: 10em;
 }
 
 @media (prefers-color-scheme: light) {
@@ -70,4 +73,38 @@ button {
 form h3 {
   margin: 0;
   margin-top: 1em;
+}
+
+.traffic-light-graphic .traffic-light-body {
+  /* --scale: 4; */
+  /* width: calc(25em / var(--scale)); */
+  /* height: calc(59em / var(--scale)); */
+  width: min-content;
+  border-radius: 1em;
+  background-color: #505755;
+  padding: 0.5em;
+  border: 0.5em solid #bbc5b8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em
+}
+
+.traffic-light-graphic .traffic-light-light {
+  --traffic-light-diameter: 4em;
+  width: var(--traffic-light-diameter);
+  height: var(--traffic-light-diameter);
+  border-radius: 50%;
+  background-color: black;
+}
+
+.traffic-light-graphic .traffic-light-red[data-active] {
+  background-color: red;
+}
+
+.traffic-light-graphic .traffic-light-amber[data-active] {
+  background-color: #e7b416;
+}
+
+.traffic-light-graphic .traffic-light-green[data-active] {
+  background-color: green;
 }
