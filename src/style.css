@@ -92,9 +92,13 @@ form h3 {
   outline-width: 1px; */
 }
 
+.traffic-light-graphic:hover {
+  transform: scale(1.03);
+}
+
 .traffic-light-graphic:active,
 .traffic-light-graphic[pressed] {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
 .traffic-light-graphic .traffic-light-body {
