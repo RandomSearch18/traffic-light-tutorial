@@ -1,3 +1,66 @@
+enum TrafficLightStage {
+  RED, // Stop
+  RED_AND_AMBER, // Prepare to go
+  GREEN, // Go
+  AMBER, // Stop if you can do so safely
+}
+
+class TrafficLightController {
+  private stage: TrafficLightStage = TrafficLightStage.RED
+  private element: HTMLElement
+
+  constructor(element: HTMLElement) {
+    this.element = element
+    this.render()
+  }
+
+  private setLights(lightValues: {
+    red: boolean
+    amber: boolean
+    green: boolean
+  }) {
+    Object.entries(lightValues).forEach(([color, value]) => {
+      const lightElement = this.element.querySelector<HTMLElement>(
+        `.traffic-light-${color}`
+      )
+      if (lightElement) {
+        value
+          ? (lightElement.dataset.active = "true")
+          : delete lightElement.dataset.active
+      }
+    })
+  }
+
+  render() {
+    const stage = this.getStage()
+    if (stage == TrafficLightStage.RED)
+      return this.setLights({ red: true, amber: false, green: false })
+    if (stage == TrafficLightStage.RED_AND_AMBER)
+      return this.setLights({ red: true, amber: true, green: false })
+    if (stage == TrafficLightStage.GREEN)
+      return this.setLights({ red: false, amber: false, green: true })
+    if (stage == TrafficLightStage.AMBER)
+      return this.setLights({ red: false, amber: true, green: false })
+    throw new Error(`Unhandled traffic light stage: ${stage}`)
+  }
+
+  nextStage() {
+    const totalStages = Object.keys(TrafficLightStage).length / 2
+    const currentStage = this.stage
+    const nextStage = (currentStage + 1) % totalStages
+    this.setStage(nextStage)
+  }
+
+  setStage(stage: TrafficLightStage) {
+    this.stage = stage
+    this.render()
+  }
+
+  getStage() {
+    return this.stage
+  }
+}
+
 function onFormSubmit(event: SubmitEvent) {
   event.preventDefault()
 
@@ -10,5 +73,11 @@ function setupForm() {
   const form = document.querySelector<HTMLFormElement>("form.data-collection")!
   form.addEventListener("submit", onFormSubmit)
 }
+
+const trafficLightElement = document.querySelector<HTMLElement>(
+  ".traffic-light-graphic"
+)!
+const trafficLights = new TrafficLightController(trafficLightElement)
+trafficLightElement.addEventListener("click", () => trafficLights.nextStage())
 
 setupForm()

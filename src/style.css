@@ -3,7 +3,9 @@ html {
   color-scheme: light dark;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -30,8 +32,7 @@ body {
 }
 
 code {
-  font-family: Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: Monaco, Consolas, "Courier New", monospace;
 }
 
 main {
@@ -75,6 +76,27 @@ form h3 {
   margin-top: 1em;
 }
 
+.traffic-light-graphic {
+  all: unset;
+  width: fit-content;
+  padding-inline: 1.5em;
+  transition: transform 0.1s ease-out;
+}
+
+.traffic-light-graphic:focus-visible {
+  outline: 0.25em solid #268bd2;
+  outline-offset: 0.25em;
+  /* outline-color: auto;
+  outline-offset: 0px;
+  outline-style: auto;
+  outline-width: 1px; */
+}
+
+.traffic-light-graphic:active,
+.traffic-light-graphic[pressed] {
+  transform: scale(0.95);
+}
+
 .traffic-light-graphic .traffic-light-body {
   /* --scale: 4; */
   /* width: calc(25em / var(--scale)); */
@@ -86,7 +108,7 @@ form h3 {
   border: 0.5em solid #bbc5b8;
   display: flex;
   flex-direction: column;
-  gap: 0.5em
+  gap: 0.5em;
 }
 
 .traffic-light-graphic .traffic-light-light {
