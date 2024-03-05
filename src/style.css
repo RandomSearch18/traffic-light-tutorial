@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   color-scheme: light dark;
+  background-color: #121212;
 }
 
 *,
@@ -124,13 +125,18 @@ form h3 {
 }
 
 .traffic-light-graphic .traffic-light-red[data-active] {
-  background-color: red;
+  --color: #cc3232;
 }
 
 .traffic-light-graphic .traffic-light-amber[data-active] {
-  background-color: #e7b416;
+  --color: #e7b416;
 }
 
 .traffic-light-graphic .traffic-light-green[data-active] {
-  background-color: green;
+  --color: #2dc937;
+}
+
+.traffic-light-graphic .traffic-light-light[data-active] {
+  background-color: var(--color);
+  box-shadow: 0 0 1em 0.5em var(--color);
 }
