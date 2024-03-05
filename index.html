@@ -8,6 +8,10 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
@@ -15,18 +19,26 @@
       <h2>Data collection</h2>
       <form class="data-collection">
         <div class="form-item">
-          <label for="name-input">Your name</label>
-          <input type="text" name="name" id="name-input" />
+          <md-filled-text-field
+            label="Your name"
+            type="text"
+            name="name"
+            id="name-input"
+          />
         </div>
         <div class="form-item">
-          <label for="age-input">Your age</label>
-          <input type="number" name="age" id="age-input" />
+          <md-filled-text-field
+            label="Your age"
+            type="number"
+            name="age"
+            id="age-input"
+          />
         </div>
         <div class="form-section">
           <h3>Your driving experience</h3>
           <div class="form-item">
             <md-filled-text-field
-              label="Years of driving experience"
+              label="Years of experience"
               type="number"
               name="years-experience"
               id="years-experience-input"
@@ -34,7 +46,10 @@
           </div>
         </div>
         <div class="form-actions">
-          <md-filled-button type="submit">Submit</md-filled-button>
+          <md-filled-button type="submit">
+            <md-icon slot="icon">check</md-icon>
+            Confirm
+          </md-filled-button>
         </div>
       </form>
       <h2>Traffic lights</h2>

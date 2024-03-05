@@ -1,5 +1,6 @@
 * {
   /* Material web doesn't do this by default (??) */
+  /* Upstream bug: --md-sys-color-surface-container-highest does not get set by applyTheme() */
   --md-filled-field-container-color: var(--md-sys-color-surface);
 }
 
