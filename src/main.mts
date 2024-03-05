@@ -4,6 +4,7 @@ import {
   applyTheme,
 } from "@material/material-color-utilities"
 import "@material/web/button/filled-button.js"
+import "@material/web/checkbox/checkbox.js"
 import "@material/web/textfield/filled-text-field.js"
 import "@material/web/textfield/outlined-text-field.js"
 import "@material/web/icon/icon.js"
@@ -71,7 +72,8 @@ class TrafficLightController {
   }
 }
 
-function updateMaterialColors(baseColor: string) {
+function updateMaterialColors() {
+  const baseColor = themeColorInput.value
   document
     .querySelector("meta[name=theme-color]")!
     .setAttribute("content", baseColor)
@@ -81,11 +83,16 @@ function updateMaterialColors(baseColor: string) {
 
 // Material color theme
 const DEFAULT_TMEME_COLOR = "#cc3232"
+const themeColorInput =
+  document.querySelector<HTMLInputElement>(".theme-color-input")!
+themeColorInput.value = DEFAULT_TMEME_COLOR
+themeColorInput.addEventListener("input", () => {
+  updateMaterialColors()
+})
+
 const systemDark = window.matchMedia("(prefers-color-scheme: dark)")
-updateMaterialColors(DEFAULT_TMEME_COLOR)
-systemDark.addEventListener("change", () =>
-  updateMaterialColors(DEFAULT_TMEME_COLOR)
-)
+updateMaterialColors()
+systemDark.addEventListener("change", () => updateMaterialColors())
 
 function onFormSubmit(event: SubmitEvent) {
   event.preventDefault()
@@ -107,10 +114,3 @@ const trafficLights = new TrafficLightController(trafficLightElement)
 trafficLightElement.addEventListener("click", () => trafficLights.nextStage())
 
 setupForm()
-
-const themeColorInput =
-  document.querySelector<HTMLInputElement>(".theme-color-input")!
-themeColorInput.value = DEFAULT_TMEME_COLOR
-themeColorInput.addEventListener("input", () => {
-  updateMaterialColors(themeColorInput.value)
-})

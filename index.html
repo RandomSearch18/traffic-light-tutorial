@@ -18,21 +18,27 @@
       <h1>Traffic light tutorial</h1>
       <h2>Data collection</h2>
       <form class="data-collection">
-        <div class="form-item">
-          <md-filled-text-field
-            label="Your name"
-            type="text"
-            name="name"
-            id="name-input"
-          />
-        </div>
-        <div class="form-item">
-          <md-filled-text-field
-            label="Your age"
-            type="number"
-            name="age"
-            id="age-input"
-          />
+        <div class="form-section">
+          <h3>Personal information's</h3>
+          <span>
+            Of the kind you should never share with a stranger on the internet
+          </span>
+          <div class="form-item">
+            <md-filled-text-field
+              label="Your name"
+              type="text"
+              name="name"
+              id="name-input"
+            />
+          </div>
+          <div class="form-item">
+            <md-filled-text-field
+              label="Your age"
+              type="number"
+              name="age"
+              id="age-input"
+            />
+          </div>
         </div>
         <div class="form-section">
           <h3>Your driving experience</h3>
@@ -43,6 +49,40 @@
               name="years-experience"
               id="years-experience-input"
             />
+          </div>
+          <div class="form-item">
+            <h4>What kinds of transmission have you driven?</h4>
+            <label class="checkbox-container">
+              <md-checkbox touch-target="wrapper"></md-checkbox>
+              Automatic
+            </label>
+            <label class="checkbox-container">
+              <md-checkbox touch-target="wrapper"></md-checkbox>
+              Manual
+            </label>
+          </div>
+          <div class="form-item">
+            <h4>Which fuel types have you driven?</h4>
+            <label class="checkbox-container">
+              <md-checkbox touch-target="wrapper"></md-checkbox>
+              Petrol
+            </label>
+            <label class="checkbox-container">
+              <md-checkbox touch-target="wrapper"></md-checkbox>
+              Diesel
+            </label>
+            <label class="checkbox-container">
+              <md-checkbox touch-target="wrapper"></md-checkbox>
+              Electric
+            </label>
+            <label class="checkbox-container">
+              <md-checkbox touch-target="wrapper"></md-checkbox>
+              Hybrid
+            </label>
+            <label class="checkbox-container">
+              <md-checkbox touch-target="wrapper"></md-checkbox>
+              Other
+            </label>
           </div>
         </div>
         <div class="form-actions">
@@ -60,8 +100,9 @@
           <div class="traffic-light-light traffic-light-green"></div>
         </div>
       </button>
-      <h2>Customise colours</h2>
-      <input class="theme-color-input" type="color" value="#ff0000" />
+      <h2>Customise webpage colours</h2>
+      <p>Choose a theme color by clicking on the color picker below</p>
+      <input class="theme-color-input" type="color" />
     </main>
     <script type="module" src="/src/main.mts"></script>
   </body>

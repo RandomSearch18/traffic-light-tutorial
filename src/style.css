@@ -61,9 +61,17 @@ h2 {
 form {
   display: flex;
   flex-direction: column;
+  gap: 1em;
+  width: fit-content;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
   gap: 0.5em;
-  /* align-items: center; */
-  /* width: max-content; */
+  background: var(--md-sys-color-secondary-container);
+  padding: 1em;
+  border-radius: 1em;
 }
 
 input {
@@ -76,13 +84,19 @@ button {
   /* font-size: 1rem; */
 }
 
-.short-input {
-  width: 5em;
+.checkbox-container {
+  display: flex;
+  align-items: center;
 }
 
 form h3 {
-  /* margin: 0; */
-  margin-top: 1em;
+  margin: 0;
+  /* margin-bottom: 0.5em; */
+}
+
+form h4 {
+  margin: 0;
+  margin-top: 0.5em;
 }
 
 .traffic-light-graphic {
@@ -102,12 +116,34 @@ form h3 {
 }
 
 .traffic-light-graphic:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+
+.traffic-light-graphic:hover .traffic-light-light[data-active] {
+  box-shadow: 0 0 1em 0.75em var(--color);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .traffic-light-graphic:hover .traffic-light-body {
+    box-shadow: 0 0 0.75em 0.5em black;
+  }
+}
+@media screen and (prefers-color-scheme: light) {
+  .traffic-light-graphic:hover .traffic-light-body {
+    box-shadow: 0 0 0.75em 0.1em black;
+  }
 }
 
 .traffic-light-graphic:active,
 .traffic-light-graphic[pressed] {
-  transform: scale(0.97);
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Remove the eye-candy motion */
+  .traffic-light-graphic.traffic-light-graphic.traffic-light-graphic {
+    transform: none;
+  }
 }
 
 .traffic-light-graphic .traffic-light-body {
@@ -122,6 +158,7 @@ form h3 {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  transition: box-shadow 0.1s ease-out;
 }
 
 .traffic-light-graphic .traffic-light-light {
@@ -147,6 +184,7 @@ form h3 {
 .traffic-light-graphic .traffic-light-light[data-active] {
   background-color: var(--color);
   box-shadow: 0 0 1em 0.5em var(--color);
+  transition: box-shadow 0.1s ease-out;
 }
 
 .theme-color-input {
