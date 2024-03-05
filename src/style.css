@@ -107,7 +107,7 @@ form h4 {
 }
 
 .traffic-light-graphic:focus-visible {
-  outline: 0.25em solid #268bd2;
+  outline: 0.25em solid var(--md-sys-color-secondary);
   outline-offset: 0.25em;
   /* outline-color: auto;
   outline-offset: 0px;
