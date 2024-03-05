@@ -71,6 +71,9 @@ class TrafficLightController {
 }
 
 function updateMaterialColors(baseColor: string) {
+  document
+    .querySelector("meta[name=theme-color]")!
+    .setAttribute("content", baseColor)
   const theme = themeFromSourceColor(argbFromHex(baseColor))
   applyTheme(theme, { target: document.body, dark: systemDark.matches })
 }
