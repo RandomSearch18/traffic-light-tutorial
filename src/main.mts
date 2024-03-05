@@ -1,3 +1,12 @@
+import {
+  argbFromHex,
+  themeFromSourceColor,
+  applyTheme,
+} from "@material/material-color-utilities"
+import "@material/web/button/filled-button.js"
+import "@material/web/textfield/filled-text-field.js"
+import "@material/web/textfield/outlined-text-field.js"
+
 enum TrafficLightStage {
   RED, // Stop
   RED_AND_AMBER, // Prepare to go
@@ -60,6 +69,16 @@ class TrafficLightController {
     return this.stage
   }
 }
+
+// Material color theme
+// Get the theme from a hex color
+const theme = themeFromSourceColor(argbFromHex("#cc3232"))
+console.log(theme)
+const systemDark = window.matchMedia("(prefers-color-scheme: dark)")
+applyTheme(theme, { target: document.body, dark: systemDark.matches })
+systemDark.addEventListener("change", (event) => {
+  applyTheme(theme, { target: document.body, dark: event.matches })
+})
 
 function onFormSubmit(event: SubmitEvent) {
   event.preventDefault()

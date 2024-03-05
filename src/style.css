@@ -1,3 +1,8 @@
+* {
+  /* Material web doesn't do this by default (??) */
+  --md-filled-field-container-color: var(--md-sys-color-surface);
+}
+
 html {
   box-sizing: border-box;
   color-scheme: light dark;
@@ -13,6 +18,7 @@ html {
 body {
   margin: 0;
   font-family: sans-serif;
+  --md-ref-typeface-plain: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -21,7 +27,7 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
-  body {
+  html {
     background-color: #fdf6e3;
   }
 
@@ -29,6 +35,7 @@ body {
     background-color: #eee8d5;
     border-width: 1px;
     border: #8d897b solid 1px;
+    border-radius: 4px;
   }
 }
 
@@ -73,7 +80,7 @@ button {
 }
 
 form h3 {
-  margin: 0;
+  /* margin: 0; */
   margin-top: 1em;
 }
 
