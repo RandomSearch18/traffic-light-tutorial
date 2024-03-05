@@ -70,15 +70,18 @@ class TrafficLightController {
   }
 }
 
+function updateMaterialColors(baseColor: string) {
+  const theme = themeFromSourceColor(argbFromHex(baseColor))
+  applyTheme(theme, { target: document.body, dark: systemDark.matches })
+}
+
 // Material color theme
-// Get the theme from a hex color
-const theme = themeFromSourceColor(argbFromHex("#cc3232"))
-console.log(theme)
+const DEFAULT_TMEME_COLOR = "#cc3232"
 const systemDark = window.matchMedia("(prefers-color-scheme: dark)")
-applyTheme(theme, { target: document.body, dark: systemDark.matches })
-systemDark.addEventListener("change", (event) => {
-  applyTheme(theme, { target: document.body, dark: event.matches })
-})
+updateMaterialColors(DEFAULT_TMEME_COLOR)
+systemDark.addEventListener("change", () =>
+  updateMaterialColors(DEFAULT_TMEME_COLOR)
+)
 
 function onFormSubmit(event: SubmitEvent) {
   event.preventDefault()
@@ -100,3 +103,10 @@ const trafficLights = new TrafficLightController(trafficLightElement)
 trafficLightElement.addEventListener("click", () => trafficLights.nextStage())
 
 setupForm()
+
+const themeColorInput =
+  document.querySelector<HTMLInputElement>(".theme-color-input")!
+themeColorInput.value = DEFAULT_TMEME_COLOR
+themeColorInput.addEventListener("input", () => {
+  updateMaterialColors(themeColorInput.value)
+})
