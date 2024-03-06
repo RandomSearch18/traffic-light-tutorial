@@ -62,7 +62,13 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  width: fit-content;
+  /* width: fit-content; */
+}
+
+.form-sections {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
 .form-section {
@@ -72,6 +78,7 @@ form {
   background: var(--md-sys-color-secondary-container);
   padding: 1em;
   border-radius: 1em;
+  /* width: 40%; */
 }
 
 input {
@@ -91,7 +98,11 @@ button {
 
 form h3 {
   margin: 0;
-  /* margin-bottom: 0.5em; */
+  font-size: 1.6rem;
+}
+
+.form-section-heading {
+  margin-bottom: 1em;
 }
 
 form h4 {
