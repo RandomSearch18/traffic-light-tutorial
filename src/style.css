@@ -110,6 +110,10 @@ form h4 {
   margin-top: 0.5em;
 }
 
+form fieldset {
+  margin-top: 0.5em;
+}
+
 .traffic-light-graphic {
   all: unset;
   width: fit-content;
