@@ -55,6 +55,15 @@ class TrafficLightController {
     throw new Error(`Unhandled traffic light stage: ${stage}`)
   }
 
+  getmainColor() {
+    const stage = this.getStage()
+    if (stage == TrafficLightStage.RED) return "#cc3232"
+    if (stage == TrafficLightStage.RED_AND_AMBER) return "#e7b416"
+    if (stage == TrafficLightStage.GREEN) return "#2dc937"
+    if (stage == TrafficLightStage.AMBER) return "#e7b416"
+    throw new Error(`Unhandled traffic light stage: ${stage}`)
+  }
+
   nextStage() {
     const totalStages = Object.keys(TrafficLightStage).length / 2
     const currentStage = this.stage
@@ -65,6 +74,11 @@ class TrafficLightController {
   setStage(stage: TrafficLightStage) {
     this.stage = stage
     this.render()
+
+    // Update the page's material color theme
+    const mainColor = this.getmainColor()
+    themeColorInput.value = mainColor
+    updateMaterialColors()
   }
 
   getStage() {
