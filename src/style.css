@@ -105,6 +105,11 @@ form fieldset {
   border-radius: 5px;
 }
 
+.form-actions {
+  display: flex;
+  gap: 1em;
+}
+
 .traffic-light-graphic {
   all: unset;
   width: fit-content;

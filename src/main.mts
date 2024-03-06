@@ -4,6 +4,7 @@ import {
   applyTheme,
 } from "@material/material-color-utilities"
 import "@material/web/button/filled-button.js"
+import "@material/web/button/outlined-button.js"
 import "@material/web/checkbox/checkbox.js"
 import "@material/web/textfield/filled-text-field.js"
 import "@material/web/textfield/outlined-text-field.js"
@@ -17,12 +18,12 @@ enum TrafficLightStage {
 }
 
 class TrafficLightController {
-  private stage: TrafficLightStage = TrafficLightStage.RED
+  private stage: TrafficLightStage = TrafficLightStage.GREEN
   private element: HTMLElement
 
   constructor(element: HTMLElement) {
     this.element = element
-    this.render()
+    this.setStage(this.stage)
   }
 
   private setLights(lightValues: {
@@ -96,10 +97,8 @@ function updateMaterialColors() {
 }
 
 // Material color theme
-const DEFAULT_TMEME_COLOR = "#cc3232"
 const themeColorInput =
   document.querySelector<HTMLInputElement>(".theme-color-input")!
-themeColorInput.value = DEFAULT_TMEME_COLOR
 themeColorInput.addEventListener("input", () => {
   updateMaterialColors()
 })
