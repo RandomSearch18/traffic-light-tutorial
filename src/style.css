@@ -1,13 +1,12 @@
 * {
-  /* Material web doesn't do this by default (??) */
   /* Upstream bug: --md-sys-color-surface-container-highest does not get set by applyTheme() */
+  /* We compromise and just fill in with the normal surface color */
   --md-filled-field-container-color: var(--md-sys-color-surface);
 }
 
 html {
   box-sizing: border-box;
   color-scheme: light dark;
-  background-color: #121212;
 }
 
 *,
@@ -17,6 +16,7 @@ html {
 }
 
 body {
+  background-color: var(--md-sys-color-surface);
   margin: 0;
   font-family: sans-serif;
   --md-ref-typeface-plain: sans-serif;
@@ -25,19 +25,6 @@ body {
 
   /* Allow overscroll */
   margin-bottom: 10em;
-}
-
-@media (prefers-color-scheme: light) {
-  html {
-    background-color: #fdf6e3;
-  }
-
-  input {
-    background-color: #eee8d5;
-    border-width: 1px;
-    border: #8d897b solid 1px;
-    border-radius: 4px;
-  }
 }
 
 code {
@@ -128,10 +115,6 @@ form fieldset {
 .traffic-light-graphic:focus-visible {
   outline: 0.25em solid var(--md-sys-color-secondary);
   outline-offset: 0.25em;
-  /* outline-color: auto;
-  outline-offset: 0px;
-  outline-style: auto;
-  outline-width: 1px; */
 }
 
 .traffic-light-graphic:hover {
