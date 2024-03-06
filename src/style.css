@@ -112,6 +112,10 @@ form h4 {
 
 form fieldset {
   margin-top: 0.5em;
+  border-color: var(--md-sys-color-on-surface-variant);
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
 }
 
 .traffic-light-graphic {
