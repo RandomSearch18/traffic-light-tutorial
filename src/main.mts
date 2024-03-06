@@ -12,6 +12,7 @@ import "@material/web/textfield/outlined-text-field.js"
 import "@material/web/icon/icon.js"
 import "@material/web/dialog/dialog.js"
 import { Dialog } from "@material/web/dialog/internal/dialog"
+import { MdFilledTextField } from "@material/web/textfield/filled-text-field.js"
 
 enum TrafficLightStage {
   RED, // Stop
@@ -116,6 +117,16 @@ function onFormSubmit(event: SubmitEvent) {
   const form = event.target as HTMLFormElement
   const formData = new FormData(form)
   console.log(formData)
+
+  const experienceYears = document.querySelector<MdFilledTextField>(
+    "[name=years-experience]"
+  )!
+  const age = document.querySelector<MdFilledTextField>("[name=age]")!
+  if (experienceYears.valueAsNumber > age.valueAsNumber) {
+    experienceYears.setCustomValidity("Years of experience must be below age")
+    experienceYears.reportValidity()
+    return
+  }
 
   const dialog = document.querySelector<Dialog>(".confirmation-dialog")!
   formData.forEach((value, key) => {
