@@ -65,6 +65,7 @@
             <div class="form-item">
               <fieldset>
                 <legend>Transmission types</legend>
+
                 <label class="checkbox-container">
                   <md-checkbox
                     touch-target="wrapper"
@@ -141,6 +142,30 @@
           </md-outlined-button>
         </div>
       </form>
+      <md-dialog class="confirmation-dialog">
+        <div slot="headline">Your data</div>
+        <form slot="content" id="confirmation-dialog-content" method="dialog">
+          <p>
+            Your name is <strong data-output="name"></strong>, and you are
+            <strong data-output="age"></strong> year(s) old with
+            <strong data-output="years-experience"></strong> year(s) of driving
+            experience.
+          </p>
+          <p>
+            Transmission types you have driven:
+            <strong data-output-array="transmission"></strong>
+          </p>
+          <p>
+            Fuel types you have driven:
+            <strong data-output-array="fuel-type"></strong>
+          </p>
+        </form>
+        <div slot="actions">
+          <md-text-button form="confirmation-dialog-content"
+            >Close</md-text-button
+          >
+        </div>
+      </md-dialog>
       <h2>Traffic lights</h2>
       <button class="traffic-light-graphic">
         <div class="traffic-light-body">

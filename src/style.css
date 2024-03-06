@@ -1,7 +1,9 @@
 * {
-  /* Upstream bug: --md-sys-color-surface-container-highest does not get set by applyTheme() */
+  /* Upstream bug: --md-sys-color-surface-container-* does not get set by applyTheme() */
   /* We compromise and just fill in with the normal surface color */
   --md-filled-field-container-color: var(--md-sys-color-surface);
+  --md-sys-color-surface-container-highest: var(--md-sys-color-surface);
+  --md-sys-color-surface-container-high: var(--md-sys-color-surface-variant);
 }
 
 html {
@@ -16,10 +18,11 @@ html {
 }
 
 body {
-  background-color: var(--md-sys-color-surface);
+  background-color: var(--md-sys-color-background);
   margin: 0;
   font-family: sans-serif;
   --md-ref-typeface-plain: sans-serif;
+  --md-ref-typeface-brand: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -198,3 +201,15 @@ form fieldset {
   width: 4em;
   height: 4em;
 }
+
+.confirmation-dialog p {
+  margin: 0;
+}
+
+.confirmation-dialog [data-output="name"] {
+  text-transform: capitalize;
+}
+
+/* .confirmation-dialog [data-output-array] {
+  text-transform: capitalize;
+} */

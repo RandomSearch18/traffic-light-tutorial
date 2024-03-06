@@ -5,10 +5,13 @@ import {
 } from "@material/material-color-utilities"
 import "@material/web/button/filled-button.js"
 import "@material/web/button/outlined-button.js"
+import "@material/web/button/text-button.js"
 import "@material/web/checkbox/checkbox.js"
 import "@material/web/textfield/filled-text-field.js"
 import "@material/web/textfield/outlined-text-field.js"
 import "@material/web/icon/icon.js"
+import "@material/web/dialog/dialog.js"
+import { Dialog } from "@material/web/dialog/internal/dialog"
 
 enum TrafficLightStage {
   RED, // Stop
@@ -113,6 +116,26 @@ function onFormSubmit(event: SubmitEvent) {
   const form = event.target as HTMLFormElement
   const formData = new FormData(form)
   console.log(formData)
+
+  const dialog = document.querySelector<Dialog>(".confirmation-dialog")!
+  formData.forEach((value, key) => {
+    const outputStringElements = dialog.querySelectorAll<HTMLElement>(
+      `[data-output="${key}"]`
+    )
+    Array.from(outputStringElements).forEach((element) => {
+      element.innerText = value.toString().trim()
+    })
+  })
+
+  const arrayOutputs =
+    dialog.querySelectorAll<HTMLElement>(`[data-output-array]`)
+  Array.from(arrayOutputs).forEach((element) => {
+    const name = element.dataset.outputArray!
+    const values = formData.getAll(name)
+    element.innerText = values.length ? values.join(", ") : "none"
+  })
+
+  dialog.show()
 }
 
 function setupForm() {
