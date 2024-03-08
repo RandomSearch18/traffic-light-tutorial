@@ -34,6 +34,10 @@ code {
   font-family: Monaco, Consolas, "Courier New", monospace;
 }
 
+a {
+  color: var(--md-sys-color-primary);
+}
+
 main {
   max-width: 75em;
   margin: 0 auto;
